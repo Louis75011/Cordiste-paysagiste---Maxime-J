@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { 
   Hammer, 
   TreePine, 
@@ -10,35 +11,44 @@ import {
   ArrowRight,
   ShieldCheck,
   HardHat,
-  Mountain
+  Mountain,
+  Anchor
 } from "lucide-react";
 
 export default function App() {
+  const [activeRegion, setActiveRegion] = useState("Vendée");
+
   const services = [
     {
-      title: "Couverture & Toiture",
-      description: "Expertise en pose, rénovation et entretien de toitures. Ancien cordiste, j'interviens en toute sécurité sur tous types de hauteurs.",
+      title: "Travaux de Couverture",
+      description: "Expertise en pose, rénovation et entretien de toitures. Cordiste certifié depuis 10 ans, j'interviens en toute sécurité sur tous types de hauteurs.",
       icon: <Home className="w-8 h-8 text-brand-slate" />,
-      image: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1200"
     },
     {
-      title: "Jardinage & Paysage",
-      description: "Entretien d'espaces verts, tonte, taille de haies et aménagement extérieur pour valoriser votre patrimoine naturel.",
+      title: "Travaux Urbains Cordistes",
+      description: "Interventions techniques en accès difficile : nettoyage, maintenance, et sécurisation de structures urbaines et industrielles.",
+      icon: <Anchor className="w-8 h-8 text-brand-slate" />,
+      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      title: "Travaux Paysagistes",
+      description: "Entretien d'espaces verts, élagage délicat et aménagement extérieur pour valoriser votre patrimoine naturel.",
       icon: <TreePine className="w-8 h-8 text-brand-green" />,
-      image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1558905734-b832982607ad?auto=format&fit=crop&q=80&w=1200"
     },
     {
       title: "Petits Travaux Bâtiment",
       description: "Rénovation intérieure, maçonnerie légère et bricolage général pour vos projets de maison.",
       icon: <Hammer className="w-8 h-8 text-brand-earth" />,
-      image: "https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80&w=800"
+      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200"
     }
   ];
 
   const regions = [
-    { name: "Essonne (91)", detail: "Secteur principal actuel" },
-    { name: "Vendée (85)", detail: "Zone d'intervention & future implantation" },
-    { name: "Grand Est", detail: "Interventions ponctuelles" }
+    { name: "Vendée", detail: "Zone d'intervention & future implantation (85)" },
+    { name: "Ile-de-France", detail: "Secteur historique et urbain (91/Paris)" },
+    { name: "Grand Est", detail: "Interventions ponctuelles et chantiers spécifiques" }
   ];
 
   return (
@@ -50,11 +60,12 @@ export default function App() {
             <div className="bg-brand-green p-2 rounded-lg">
               <HardHat className="text-white w-6 h-6" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-brand-slate uppercase">Maxime Josset</span>
+            <span className="font-bold text-xl tracking-tight text-brand-slate uppercase">Maxime J.</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="#services" className="hover:text-brand-green transition-colors">Services</a>
             <a href="#about" className="hover:text-brand-green transition-colors">À propos</a>
+            <a href="#regions" className="hover:text-brand-green transition-colors">Régions</a>
             <a href="#contact" className="bg-brand-green text-white px-5 py-2.5 rounded-full hover:bg-brand-green/90 transition-all shadow-sm">Demander un devis</a>
           </div>
         </div>
@@ -75,13 +86,13 @@ export default function App() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block py-1 px-3 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider mb-6">
-                Artisan Multi-Services
+                Cordiste certifié depuis 10 ans
               </span>
               <h1 className="text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-                L'expertise du <span className="text-brand-green">terrain</span> au service de votre habitat.
+                L'expertise en <span className="text-brand-green">hauteur</span> au service de votre habitat.
               </h1>
               <p className="text-lg text-slate-600 mb-10 max-w-lg leading-relaxed">
-                Ancien cordiste spécialisé en couverture et travaux paysagers. J'interviens en Essonne et en Vendée pour vos projets de toiture, jardinage et rénovation.
+                Spécialiste en couverture, travaux urbains cordistes et paysagisme. J'interviens avec agilité et sécurité en Vendée, Ile-de-France et Grand Est.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="#contact" className="flex items-center justify-center gap-2 bg-brand-green text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-brand-green/20 transition-all">
@@ -90,18 +101,6 @@ export default function App() {
                 <a href="#services" className="flex items-center justify-center gap-2 bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all">
                   Voir mes services
                 </a>
-              </div>
-              <div className="mt-12 flex items-center gap-6">
-                <div className="flex -space-x-2">
-                  {[1,2,3].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden">
-                      <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="client" referrerPolicy="no-referrer" />
-                    </div>
-                  ))}
-                </div>
-                <p className="text-sm text-slate-500">
-                  <span className="font-bold text-slate-900">100% de satisfaction</span> sur mes interventions locales.
-                </p>
               </div>
             </motion.div>
             
@@ -134,8 +133,8 @@ export default function App() {
                     <Mountain className="text-brand-earth w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 font-bold uppercase">Spécialité</p>
-                    <p className="text-sm font-extrabold text-slate-900">Travaux en Hauteur</p>
+                    <p className="text-xs text-slate-500 font-bold uppercase">Expérience</p>
+                    <p className="text-sm font-extrabold text-slate-900">10 ans de métier</p>
                   </div>
                 </div>
               </div>
@@ -154,12 +153,12 @@ export default function App() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <motion.div 
                 key={index}
                 whileHover={{ y: -10 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100"
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col"
               >
                 <div className="h-48 overflow-hidden">
                   <img 
@@ -169,14 +168,16 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="p-8">
+                <div className="p-6 flex-grow">
                   <div className="mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
+                  <h3 className="text-lg font-bold text-slate-900 mb-3">{service.title}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
+                </div>
+                <div className="p-6 pt-0 border-t border-slate-50">
                   <ul className="space-y-2">
-                    {["Qualité artisanale", "Devis gratuit", "Respect des délais"].map((item, i) => (
+                    {["Qualité artisanale", "Devis gratuit"].map((item, i) => (
                       <li key={i} className="flex items-center gap-2 text-xs font-semibold text-slate-500">
                         <CheckCircle2 className="w-4 h-4 text-brand-green" /> {item}
                       </li>
@@ -189,8 +190,87 @@ export default function App() {
         </div>
       </section>
 
+      {/* Regions Section */}
+      <section id="regions" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Zones d'Intervention</h2>
+            <p className="text-slate-600">
+              Une présence multi-régionale pour répondre à vos besoins spécifiques.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {regions.map((region) => (
+              <button
+                key={region.name}
+                onClick={() => setActiveRegion(region.name)}
+                className={`px-8 py-3 rounded-full font-bold transition-all ${
+                  activeRegion === region.name
+                    ? "bg-brand-green text-white shadow-lg shadow-brand-green/20"
+                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                }`}
+              >
+                {region.name}
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-slate-50 rounded-3xl p-8 lg:p-12 border border-slate-100">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeRegion}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col lg:flex-row items-center gap-12"
+              >
+                <div className="lg:w-1/2">
+                  <div className="bg-brand-green/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                    <MapPin className="text-brand-green w-8 h-8" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">{activeRegion}</h3>
+                  <p className="text-lg text-slate-600 mb-6">
+                    {regions.find(r => r.name === activeRegion)?.detail}
+                  </p>
+                  <ul className="space-y-4">
+                    {[
+                      "Intervention rapide sur site",
+                      "Connaissance parfaite du terrain local",
+                      "Réseau de partenaires régionaux",
+                      "Déplacement inclus dans le devis"
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                        <CheckCircle2 className="w-5 h-5 text-brand-green" /> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="lg:w-1/2 w-full">
+                  <div className="rounded-2xl overflow-hidden shadow-xl h-80">
+                    <img 
+                      src={
+                        activeRegion === "Vendée" 
+                          ? "https://images.unsplash.com/photo-1548567117-024097334789?auto=format&fit=crop&q=80&w=800"
+                          : activeRegion === "Ile-de-France"
+                          ? "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=800"
+                          : "https://images.unsplash.com/photo-1595152230651-40439636b701?auto=format&fit=crop&q=80&w=800"
+                      }
+                      alt={activeRegion}
+                      className="w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
-      <section id="about" className="py-24 overflow-hidden">
+      <section id="about" className="py-24 overflow-hidden bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -209,30 +289,29 @@ export default function App() {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-brand-green text-white p-8 rounded-2xl shadow-xl max-w-xs">
-                <p className="text-3xl font-bold mb-1">Ancien Cordiste</p>
-                <p className="text-sm opacity-80">Une agilité et une sécurité renforcées pour vos travaux difficiles d'accès.</p>
+                <p className="text-3xl font-bold mb-1">Cordiste Certifié</p>
+                <p className="text-sm opacity-80">10 ans d'expertise au service de votre sécurité et de vos projets.</p>
               </div>
             </div>
             
             <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">À propos de Maxime Josset</h2>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">À propos de Maxime J.</h2>
               <div className="space-y-6 text-slate-600 leading-relaxed">
                 <p>
-                  Fort d'une expérience solide en tant que cordiste urbain à Paris, j'ai choisi de mettre mes compétences au service des particuliers et des entreprises locales. Ma formation de couvreur complète mon agilité naturelle par une expertise technique pointue.
+                  Cordiste certifié depuis 10 ans, j'ai forgé mon expérience sur les chantiers les plus exigeants. Mon agilité et ma maîtrise technique me permettent d'intervenir là où d'autres s'arrêtent.
                 </p>
                 <p>
-                  Mon approche est simple : <span className="font-bold text-brand-green">le travail bien fait</span>. Que ce soit pour une toiture à rénover, un jardin à entretenir ou des petits travaux de bâtiment, je m'engage sur la qualité et la transparence.
+                  Mon approche est simple : <span className="font-bold text-brand-green">le travail bien fait</span>. Que ce soit pour une toiture à rénover, un élagage délicat ou des interventions urbaines complexes, je m'engage sur la qualité et la transparence.
                 </p>
-                <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                  {regions.map((region, i) => (
-                    <div key={i} className="flex items-start gap-3 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                      <MapPin className="text-brand-green w-5 h-5 shrink-0 mt-1" />
-                      <div>
-                        <p className="font-bold text-slate-900 text-sm">{region.name}</p>
-                        <p className="text-xs text-slate-500">{region.detail}</p>
-                      </div>
-                    </div>
-                  ))}
+                <div className="flex items-center gap-4 pt-4">
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-3">
+                    <ShieldCheck className="text-brand-green w-6 h-6" />
+                    <span className="font-bold text-slate-900">Assurance Décennale</span>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-3">
+                    <HardHat className="text-brand-green w-6 h-6" />
+                    <span className="font-bold text-slate-900">Sécurité Maximale</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -248,7 +327,7 @@ export default function App() {
               <div>
                 <h2 className="text-4xl font-bold mb-6">Prêt à lancer votre projet ?</h2>
                 <p className="text-slate-300 mb-10 text-lg">
-                  Contactez-moi dès aujourd'hui pour un devis gratuit ou simplement pour échanger sur vos besoins en Essonne ou en Vendée.
+                  Contactez-moi dès aujourd'hui pour un devis gratuit ou simplement pour échanger sur vos besoins en Vendée, Ile-de-France ou Grand Est.
                 </p>
                 
                 <div className="space-y-6">
@@ -267,7 +346,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-sm text-slate-400">Email</p>
-                      <p className="text-xl font-bold">contact@maxime-josset.fr</p>
+                      <p className="text-xl font-bold">contact@maxime-j.fr</p>
                     </div>
                   </div>
                 </div>
@@ -289,7 +368,8 @@ export default function App() {
                 <select className="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent transition-colors appearance-none">
                   <option className="bg-brand-slate">Type de projet</option>
                   <option className="bg-brand-slate">Couverture / Toiture</option>
-                  <option className="bg-brand-slate">Jardinage / Paysage</option>
+                  <option className="bg-brand-slate">Travaux Cordistes</option>
+                  <option className="bg-brand-slate">Paysagisme</option>
                   <option className="bg-brand-slate">Bâtiment / Rénovation</option>
                 </select>
                 <textarea 
@@ -313,10 +393,10 @@ export default function App() {
             <div className="bg-brand-green p-1.5 rounded-md">
               <HardHat className="text-white w-4 h-4" />
             </div>
-            <span className="font-bold text-lg text-brand-slate uppercase">Maxime Josset</span>
+            <span className="font-bold text-lg text-brand-slate uppercase">Maxime J.</span>
           </div>
           <p className="text-slate-500 text-sm">
-            © 2026 Entreprise Maxime Josset. Tous droits réservés.
+            © 2026 Entreprise Maxime J. Tous droits réservés.
           </p>
           <div className="flex items-center gap-4 text-slate-400">
             <span className="text-xs font-medium uppercase tracking-widest">Partenaire : Arx Systema</span>
