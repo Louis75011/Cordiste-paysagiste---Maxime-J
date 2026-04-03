@@ -35,7 +35,7 @@ export default function App() {
       title: "Travaux Paysagistes",
       description: "Entretien d'espaces verts, élagage délicat et aménagement extérieur pour valoriser votre patrimoine naturel.",
       icon: <TreePine className="w-8 h-8 text-brand-green" />,
-      image: "https://images.unsplash.com/photo-1558905734-b832982607ad?auto=format&fit=crop&q=80&w=1200"
+      image: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&q=80&w=1200"
     },
     {
       title: "Petits Travaux Bâtiment",
@@ -112,7 +112,7 @@ export default function App() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1590066394791-b0033d47997f?auto=format&fit=crop&q=80&w=1200" 
+                  src="https://images.unsplash.com/photo-1621905235277-336647997f22?auto=format&fit=crop&q=80&w=1200" 
                   alt="Travaux de toiture" 
                   className="w-full h-[500px] object-cover"
                   referrerPolicy="no-referrer"
@@ -252,7 +252,7 @@ export default function App() {
                     <img 
                       src={
                         activeRegion === "Vendée" 
-                          ? "https://images.unsplash.com/photo-1548567117-024097334789?auto=format&fit=crop&q=80&w=800"
+                          ? "https://images.unsplash.com/photo-1506953853676-52599757e15e?auto=format&fit=crop&q=80&w=800"
                           : activeRegion === "Ile-de-France"
                           ? "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=800"
                           : "https://images.unsplash.com/photo-1595152230651-40439636b701?auto=format&fit=crop&q=80&w=800"
@@ -282,7 +282,7 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
                 <img 
-                  src="https://images.unsplash.com/photo-1592150621344-c7a43422e497?auto=format&fit=crop&q=80&w=600" 
+                  src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600" 
                   alt="Jardin" 
                   className="rounded-2xl h-64 w-full object-cover"
                   referrerPolicy="no-referrer"
