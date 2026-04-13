@@ -10,9 +10,7 @@ import {
   CheckCircle2, 
   ArrowRight,
   ShieldCheck,
-  HardHat,
-  Mountain,
-  Anchor
+  HardHat
 } from "lucide-react";
 
 export default function App() {
@@ -20,35 +18,35 @@ export default function App() {
 
   const services = [
     {
-      title: "Travaux de Couverture",
-      description: "Expertise en pose, rénovation et entretien de toitures. Cordiste certifié depuis 10 ans, j'interviens en toute sécurité sur tous types de hauteurs.",
+      title: "Couverture et Zinguerie",
+      description: "Pose, rénovation et entretien de toitures. Expertise en zinguerie pour une étanchéité parfaite de votre habitat.",
       icon: <Home className="w-8 h-8 text-brand-slate" />,
       image: "https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&q=80&w=1200"
     },
     {
-      title: "Travaux Urbains Cordistes",
-      description: "Interventions techniques en accès difficile : nettoyage, maintenance, et sécurisation de structures urbaines et industrielles.",
-      icon: <Anchor className="w-8 h-8 text-brand-slate" />,
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=1200"
-    },
-    {
-      title: "Travaux Paysagistes",
-      description: "Entretien d'espaces verts, élagage délicat et aménagement extérieur pour valoriser votre patrimoine naturel.",
+      title: "Paysagiste",
+      description: "Entretien complet de vos extérieurs : tonte de pelouse, passage du rotofil, taille de haies et aménagement paysager.",
       icon: <TreePine className="w-8 h-8 text-brand-green" />,
       image: "https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&q=80&w=1200"
     },
     {
-      title: "Petits Travaux Bâtiment",
-      description: "Rénovation intérieure, maçonnerie légère et bricolage général pour vos projets de maison.",
+      title: "Ravalement façade",
+      description: "Nettoyage, traitement et rénovation de vos façades pour redonner de l'éclat et protéger vos murs extérieurs.",
+      icon: <ShieldCheck className="w-8 h-8 text-brand-earth" />,
+      image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1200"
+    },
+    {
+      title: "Travaux de bâtiment",
+      description: "Petits travaux de maçonnerie, rénovation intérieure et bricolage général pour l'amélioration de votre maison.",
       icon: <Hammer className="w-8 h-8 text-brand-earth" />,
       image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=1200"
     }
   ];
 
   const regions = [
-    { name: "Vendée", detail: "Zone d'intervention & future implantation (85)" },
-    { name: "Ile-de-France", detail: "Secteur historique et urbain (91/Paris)" },
-    { name: "Grand Est", detail: "Interventions ponctuelles et chantiers spécifiques" }
+    { name: "Vendée", detail: "Toute la Vendée desservie depuis Saint-Hilaire-des-Loges (85240)" },
+    { name: "Ile-de-France", detail: "Secteur à venir - Prochainement disponible" },
+    { name: "Grand Est", detail: "Secteur à venir - Prochainement disponible" }
   ];
 
   return (
@@ -60,11 +58,11 @@ export default function App() {
             <div className="bg-brand-green p-2 rounded-lg">
               <HardHat className="text-white w-6 h-6" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-brand-slate uppercase">Maxime J.</span>
+            <span className="font-bold text-xl tracking-tight text-brand-slate uppercase">Maxime Josset</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
             <a href="#services" className="hover:text-brand-green transition-colors">Services</a>
-            <a href="#about" className="hover:text-brand-green transition-colors">À propos</a>
+            <a href="#portfolio" className="hover:text-brand-green transition-colors">Portfolio</a>
             <a href="#regions" className="hover:text-brand-green transition-colors">Régions</a>
             <a href="#contact" className="bg-brand-green text-white px-5 py-2.5 rounded-full hover:bg-brand-green/90 transition-all shadow-sm">Demander un devis</a>
           </div>
@@ -86,13 +84,13 @@ export default function App() {
               transition={{ duration: 0.6 }}
             >
               <span className="inline-block py-1 px-3 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-wider mb-6">
-                Cordiste certifié depuis 10 ans
+                Prix abordable, travail propre
               </span>
               <h1 className="text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight mb-6">
-                L'expertise en <span className="text-brand-green">hauteur</span> au service de votre habitat.
+                L'expertise au service de votre <span className="text-brand-green">habitat</span>.
               </h1>
               <p className="text-lg text-slate-600 mb-10 max-w-lg leading-relaxed">
-                Spécialiste en couverture, travaux urbains cordistes et paysagisme. J'interviens avec agilité et sécurité en Vendée, Ile-de-France et Grand Est.
+                Spécialiste en couverture, travaux urbains et paysagisme. J'interviens avec agilité et sécurité dans toute la Vendée !
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a href="#contact" className="flex items-center justify-center gap-2 bg-brand-green text-white px-8 py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-brand-green/20 transition-all">
@@ -130,11 +128,11 @@ export default function App() {
               <div className="absolute -top-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden sm:block">
                 <div className="flex items-center gap-4">
                   <div className="bg-brand-accent/20 p-3 rounded-xl">
-                    <Mountain className="text-brand-earth w-6 h-6" />
+                    <MapPin className="text-brand-earth w-6 h-6" />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 font-bold uppercase">Expérience</p>
-                    <p className="text-sm font-extrabold text-slate-900">10 ans de métier</p>
+                    <p className="text-xs text-slate-500 font-bold uppercase">Localisation</p>
+                    <p className="text-sm font-extrabold text-slate-900">Vendée (85)</p>
                   </div>
                 </div>
               </div>
@@ -149,7 +147,7 @@ export default function App() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Mes Domaines d'Intervention</h2>
             <p className="text-slate-600">
-              De la toiture au jardin, je vous accompagne dans l'entretien et l'amélioration de votre habitat avec rigueur et professionnalisme.
+              Toiture, Façade et Jardin : un accompagnement complet pour l'entretien et l'amélioration de votre habitat.
             </p>
           </div>
           
@@ -177,7 +175,7 @@ export default function App() {
                 </div>
                 <div className="p-6 pt-0 border-t border-slate-50">
                   <ul className="space-y-2">
-                    {["Qualité artisanale", "Devis gratuit"].map((item, i) => (
+                    {["Travail propre", "Prix abordable"].map((item, i) => (
                       <li key={i} className="flex items-center gap-2 text-xs font-semibold text-slate-500">
                         <CheckCircle2 className="w-4 h-4 text-brand-green" /> {item}
                       </li>
@@ -205,13 +203,16 @@ export default function App() {
               <button
                 key={region.name}
                 onClick={() => setActiveRegion(region.name)}
-                className={`px-8 py-3 rounded-full font-bold transition-all ${
+                className={`px-8 py-3 rounded-full font-bold transition-all flex items-center gap-2 ${
                   activeRegion === region.name
                     ? "bg-brand-green text-white shadow-lg shadow-brand-green/20"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
                 {region.name}
+                {region.name !== "Vendée" && (
+                  <span className="text-[10px] bg-slate-200 text-slate-500 px-2 py-0.5 rounded-full uppercase">Bientôt</span>
+                )}
               </button>
             ))}
           </div>
@@ -269,8 +270,8 @@ export default function App() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-24 overflow-hidden bg-brand-sand-medium/30">
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-24 overflow-hidden bg-brand-sand-medium/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -289,28 +290,28 @@ export default function App() {
                 />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-brand-green text-white p-8 rounded-2xl shadow-xl max-w-xs">
-                <p className="text-3xl font-bold mb-1">Cordiste Certifié</p>
-                <p className="text-sm opacity-80">10 ans d'expertise au service de votre sécurité et de vos projets.</p>
+                <p className="text-3xl font-bold mb-1">Portfolio</p>
+                <p className="text-sm opacity-80">Découvrez mes réalisations en toiture, façade et jardinage.</p>
               </div>
             </div>
             
             <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-6">À propos de Maxime J.</h2>
+              <h2 className="text-3xl font-bold text-slate-900 mb-6">À propos de Maxime Josset</h2>
               <div className="space-y-6 text-slate-600 leading-relaxed">
                 <p>
-                  Cordiste certifié depuis 10 ans, j'ai forgé mon expérience sur les chantiers les plus exigeants. Mon agilité et ma maîtrise technique me permettent d'intervenir là où d'autres s'arrêtent.
+                  Artisan passionné avec une solide expérience du terrain, je mets mon savoir-faire au service de votre habitat. Mon agilité et ma maîtrise technique me permettent d'intervenir sur tous types de projets.
                 </p>
                 <p>
-                  Mon approche est simple : <span className="font-bold text-brand-green">le travail bien fait</span>. Que ce soit pour une toiture à rénover, un élagage délicat ou des interventions urbaines complexes, je m'engage sur la qualité et la transparence.
+                  Mon approche est simple : <span className="font-bold text-brand-green">le travail bien fait</span>. Que ce soit pour une toiture à rénover, un ravalement de façade ou l'entretien de votre jardin, je m'engage sur la qualité et la transparence.
                 </p>
-                <div className="flex items-center gap-4 pt-4">
+                <div className="flex flex-col gap-4 pt-4">
                   <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-3">
                     <ShieldCheck className="text-brand-green w-6 h-6" />
                     <span className="font-bold text-slate-900">Assurance Décennale</span>
                   </div>
                   <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex items-center gap-3">
-                    <HardHat className="text-brand-green w-6 h-6" />
-                    <span className="font-bold text-slate-900">Sécurité Maximale</span>
+                    <MapPin className="text-brand-green w-6 h-6" />
+                    <span className="font-bold text-slate-900 text-sm">98 rue Léon Bienvenu, 85240 Saint-Hilaire-des-Loges</span>
                   </div>
                 </div>
               </div>
@@ -327,7 +328,7 @@ export default function App() {
               <div>
                 <h2 className="text-4xl font-bold mb-6">Prêt à lancer votre projet ?</h2>
                 <p className="text-slate-300 mb-10 text-lg">
-                  Contactez-moi dès aujourd'hui pour un devis gratuit ou simplement pour échanger sur vos besoins en Vendée, Ile-de-France ou Grand Est.
+                  Contactez-moi dès aujourd'hui pour un devis gratuit ou simplement pour échanger sur vos besoins en Vendée.
                 </p>
                 
                 <div className="space-y-6">
@@ -337,7 +338,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-sm text-slate-400">Téléphone</p>
-                      <p className="text-xl font-bold">06 XX XX XX XX</p>
+                      <a href="tel:+33602101242" className="text-xl font-bold hover:text-brand-accent transition-colors">+33 6 02 10 12 42</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -346,7 +347,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-sm text-slate-400">Email</p>
-                      <p className="text-xl font-bold">contact@maxime-j.fr</p>
+                      <a href="mailto:maxime.josset@gmail.com" className="text-xl font-bold hover:text-brand-accent transition-colors">maxime.josset@gmail.com</a>
                     </div>
                   </div>
                 </div>
@@ -367,8 +368,8 @@ export default function App() {
                 </div>
                 <select className="w-full bg-white/10 border border-white/20 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent transition-colors appearance-none">
                   <option className="bg-brand-slate">Type de projet</option>
-                  <option className="bg-brand-slate">Couverture / Toiture</option>
-                  <option className="bg-brand-slate">Travaux Cordistes</option>
+                  <option className="bg-brand-slate">Couverture / Zinguerie</option>
+                  <option className="bg-brand-slate">Ravalement façade</option>
                   <option className="bg-brand-slate">Paysagisme</option>
                   <option className="bg-brand-slate">Bâtiment / Rénovation</option>
                 </select>
@@ -393,13 +394,16 @@ export default function App() {
             <div className="bg-brand-green p-1.5 rounded-md">
               <HardHat className="text-white w-4 h-4" />
             </div>
-            <span className="font-bold text-lg text-brand-slate uppercase">Maxime J.</span>
+            <span className="font-bold text-lg text-brand-slate uppercase">Maxime Josset</span>
           </div>
           <p className="text-slate-500 text-sm">
-            © 2026 Entreprise Maxime J. Tous droits réservés.
+            © 2026 Maxime Josset. Tous droits réservés.
           </p>
           <div className="flex items-center gap-4 text-slate-400">
-            <span className="text-xs font-medium uppercase tracking-widest">Partenaire : Arx Systema</span>
+            <span className="text-xs font-medium uppercase tracking-widest text-center md:text-right">
+              98 rue Léon Bienvenu, 85240 Saint-Hilaire-des-Loges<br/>
+              Partenaire : Arx Systema
+            </span>
           </div>
         </div>
       </footer>
