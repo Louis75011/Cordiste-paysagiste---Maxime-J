@@ -112,7 +112,7 @@ export default function App() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1621905235277-336647997f22?auto=format&fit=crop&q=80&w=1200" 
+                  src="https://images.unsplash.com/photo-1516880711640-ef7db81be3e1?auto=format&fit=crop&q=80&w=1200" 
                   alt="Travaux de toiture" 
                   className="w-full h-[500px] object-cover"
                   referrerPolicy="no-referrer"
@@ -252,7 +252,7 @@ export default function App() {
                     <img 
                       src={
                         activeRegion === "Vendée" 
-                          ? "https://images.unsplash.com/photo-1506953853676-52599757e15e?auto=format&fit=crop&q=80&w=800"
+                          ? "https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&q=80&w=800"
                           : activeRegion === "Ile-de-France"
                           ? "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=800"
                           : "https://images.unsplash.com/photo-1595152230651-40439636b701?auto=format&fit=crop&q=80&w=800"
