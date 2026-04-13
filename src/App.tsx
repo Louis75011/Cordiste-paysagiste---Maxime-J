@@ -54,7 +54,7 @@ export default function App() {
   return (
     <div className="min-h-screen font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
+      <nav className="fixed top-0 w-full bg-gradient-to-r from-brand-sand-medium/90 to-brand-sand-dark/90 backdrop-blur-md z-50 border-b border-brand-earth/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="bg-brand-green p-2 rounded-lg">
@@ -74,8 +74,8 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white"></div>
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-green/5 rounded-l-[100px] transform translate-x-1/4 -skew-x-12"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-sand-light to-white"></div>
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-brand-earth/5 rounded-l-[100px] transform translate-x-1/4 -skew-x-12"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +144,7 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-slate-50">
+      <section id="services" className="py-24 bg-brand-sand-medium/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Mes Domaines d'Intervention</h2>
@@ -216,7 +216,7 @@ export default function App() {
             ))}
           </div>
 
-          <div className="bg-slate-50 rounded-3xl p-8 lg:p-12 border border-slate-100">
+          <div className="bg-brand-sand-medium/20 rounded-3xl p-8 lg:p-12 border border-brand-earth/5">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeRegion}
@@ -270,7 +270,7 @@ export default function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 overflow-hidden bg-slate-50">
+      <section id="about" className="py-24 overflow-hidden bg-brand-sand-medium/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -387,7 +387,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-slate-50 border-t border-slate-200">
+      <footer className="py-12 bg-gradient-to-b from-brand-sand-medium to-brand-sand-dark border-t border-brand-earth/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
             <div className="bg-brand-green p-1.5 rounded-md">
